@@ -1,0 +1,6 @@
+CSharp - Microsoft
+C# XML Documentation Comments - Keisuke Kato
+IntelliCode - Microsoft
+Live Server - Ritwick Dey
+vscode-icons - VSCode Icons Team
+vscode-solution-explorer - Fernando Escolar
