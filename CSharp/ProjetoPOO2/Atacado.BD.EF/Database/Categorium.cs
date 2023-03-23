@@ -1,25 +1,27 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Atacado.BD.EF.Database;
-
-[Table("Categoria")]
-public partial class Categorium
+namespace Atacado.BD.EF.Database
 {
-    [Key]
-    public int Codigo { get; set; }
+    public partial class Categorium
+    {
+        public Categorium()
+        {
+            Subcategoria = new HashSet<Subcategorium>();
+        }
 
-    [Unicode(false)]
-    public string Descricao { get; set; } = null!;
+        [Key]
+        public int Codigo { get; set; }
+        [Unicode(false)]
+        public string Descricao { get; set; } = null!;
+        public bool Ativo { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? DataInclusao { get; set; }
 
-    public bool Ativo { get; set; }
-
-    [Column(TypeName = "datetime")]
-    public DateTime? DataInclusao { get; set; }
-
-    [InverseProperty("CodigoCategoriaNavigation")]
-    public virtual ICollection<Subcategorium> Subcategoria { get; } = new List<Subcategorium>();
+        [InverseProperty("CodigoCategoriaNavigation")]
+        public virtual ICollection<Subcategorium> Subcategoria { get; set; }
+    }
 }
