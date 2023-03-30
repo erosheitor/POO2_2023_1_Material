@@ -20,6 +20,8 @@ namespace Atacado.BD.EF.Database
         public virtual DbSet<Produto> Produtos { get; set; } = null!;
         public virtual DbSet<Subcategorium> Subcategoria { get; set; } = null!;
 
+        public virtual DbSet<Regiao> Regioes { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -57,6 +59,8 @@ namespace Atacado.BD.EF.Database
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Subcategoria_Categoria");
             });
+
+            modelBuilder.Entity<Regiao>();
 
             OnModelCreatingPartial(modelBuilder);
         }
