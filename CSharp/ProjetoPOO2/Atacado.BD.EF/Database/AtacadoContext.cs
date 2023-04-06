@@ -23,6 +23,9 @@ namespace Atacado.BD.EF.Database
         public virtual DbSet<Regiao> Regioes { get; set; } = null!;
         public virtual DbSet<Estado> Estados { get; set; } = null!;
         public virtual DbSet<Cidade> Cidades { get; set; } = null!;
+        
+        public virtual DbSet<AreaConhecimento> AreasConhecimento { get; set; } = null!;
+        public virtual DbSet<Banco> Bancos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -53,6 +56,9 @@ namespace Atacado.BD.EF.Database
             modelBuilder.Entity<Regiao>();
             modelBuilder.Entity<Estado>();
             modelBuilder.Entity<Cidade>();
+
+            modelBuilder.Entity<AreaConhecimento>();
+            modelBuilder.Entity<Banco>();
 
             OnModelCreatingPartial(modelBuilder);
         }

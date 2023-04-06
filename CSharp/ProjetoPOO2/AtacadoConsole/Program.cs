@@ -9,14 +9,22 @@ public class Program
     {
         //Criando a string de conexão com o banco de dados SQL Server.
         //Verifique o nome do servidor, no parâmetro Data Source.
-        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=bdAtacado;User=usrAtacado;Password=senha123;TrustServerCertificate=True;";
-        // string connectionString = "Data Source=(local);Initial Catalog=bdAtacado;User=usrAtacado;Password=senha123;TrustServerCertificate=True;";
+        //string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=bdAtacado;User=usrAtacado;Password=senha123;TrustServerCertificate=True;";
+        string connectionString = "Data Source=(local);Initial Catalog=bdAtacado;User=usrAtacado;Password=senha123;TrustServerCertificate=True;";
         var options = new DbContextOptionsBuilder<AtacadoContext>().UseSqlServer(connectionString).Options;
         var contexto = new AtacadoContext(options);
 
         BaseTestes teste;
+
         //teste = new CategoriaTestes(contexto);
-        teste = new SubcategoriaTestes(contexto);
+        //teste = new SubcategoriaTestes(contexto);
+        //teste = new ProdutoTestes(contexto);
+        //teste = new RegiaoTestes(contexto);
+        //teste = new EstadoTestes(contexto);
+        //teste = new CidadeTestes(contexto);
+        //teste = new AreaConhecimentoTestes(contexto);
+        teste = new BancoTestes(contexto);
+
         teste.Imprimir();
 
 
