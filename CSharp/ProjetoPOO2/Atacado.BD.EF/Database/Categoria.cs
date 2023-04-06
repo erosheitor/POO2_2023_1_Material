@@ -6,22 +6,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Atacado.BD.EF.Database
 {
-    public partial class Categorium
+    [Table("Categoria")]
+    public partial class Categoria
     {
-        public Categorium()
-        {
-            Subcategoria = new HashSet<Subcategorium>();
-        }
+        public Categoria()
+        { }
 
         [Key]
         public int Codigo { get; set; }
+
         [Unicode(false)]
         public string Descricao { get; set; } = null!;
+
         public bool Ativo { get; set; }
+
         [Column(TypeName = "datetime")]
         public DateTime? DataInclusao { get; set; }
-
-        [InverseProperty("CodigoCategoriaNavigation")]
-        public virtual ICollection<Subcategorium> Subcategoria { get; set; }
     }
 }
